@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EMI Calculator | Divyansha Sharma</title>
+  <meta name="description" content="A professional EMI Calculator to compute your Equated Monthly Installment, total payment, and total interest. Built by Divyansha Sharma." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== Background Animated Blobs ===== -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- ===== Main Container ===== -->
+  <div class="wrapper">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-badge">💰 Loan Calculator</div>
+      <h1 class="header-title">EMI Calculator</h1>
+      <p class="header-subtitle">Calculate your Equated Monthly Installment instantly</p>
+    </header>
+
+    <!-- ===== Calculator Card ===== -->
+    <div class="card">
+
+      <!-- Error Message Box -->
+      <div class="error-box" id="errorBox" role="alert" aria-live="polite">
+        <span class="error-icon">⚠️</span>
+        <span id="errorMessage">Please fill all fields with valid positive values.</span>
+      </div>
+
+      <!-- Input Section -->
+      <form id="emiForm" novalidate>
+
+        <div class="input-grid">
+
+          <!-- Loan Amount -->
+          <div class="input-group">
+            <label for="loanAmount" class="input-label">
+              <span class="label-icon">🏠</span> Loan Amount (₹)
+            </label>
+            <div class="input-wrapper">
+              <span class="input-prefix">₹</span>
+              <input
+                type="number"
+                id="loanAmount"
+                name="loanAmount"
+                class="input-field"
+                placeholder="e.g. 500000"
+                min="1"
+                step="any"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <!-- Annual Interest Rate -->
+          <div class="input-group">
+            <label for="interestRate" class="input-label">
+              <span class="label-icon">📈</span> Annual Interest Rate (%)
+            </label>
+            <div class="input-wrapper">
+              <input
+                type="number"
+                id="interestRate"
+                name="interestRate"
+                class="input-field"
+                placeholder="e.g. 8.5"
+                min="0.01"
+                step="any"
+                autocomplete="off"
+              />
+              <span class="input-suffix">%</span>
+            </div>
+          </div>
+
+          <!-- Loan Duration -->
+          <div class="input-group">
+            <label for="loanDuration" class="input-label">
+              <span class="label-icon">📅</span> Loan Duration (Years)
+            </label>
+            <div class="input-wrapper">
+              <input
+                type="number"
+                id="loanDuration"
+                name="loanDuration"
+                class="input-field"
+                placeholder="e.g. 5"
+                min="1"
+                step="1"
+                autocomplete="off"
+              />
+              <span class="input-suffix">yrs</span>
+            </div>
+          </div>
+
+        </div><!-- /.input-grid -->
+
+        <!-- Buttons -->
+        <div class="button-row">
+          <button type="submit" class="btn btn-primary" id="calculateBtn">
+            <span class="btn-icon">⚡</span> Calculate EMI
+          </button>
+          <button type="button" class="btn btn-secondary" id="resetBtn">
+            <span class="btn-icon">🔄</span> Reset
+          </button>
+        </div>
+
+      </form><!-- /#emiForm -->
+
+      <!-- ===== Results Section ===== -->
+      <section class="results-section" id="resultsSection" aria-live="polite">
+        <div class="results-divider">
+          <span>Loan Breakdown</span>
+        </div>
+
+        <div class="results-grid">
+
+          <!-- Monthly EMI -->
+          <div class="result-card result-emi">
+            <div class="result-icon">💳</div>
+            <div class="result-label">Monthly EMI</div>
+            <div class="result-value" id="emiResult">₹0</div>
+          </div>
+
+          <!-- Total Payment -->
+          <div class="result-card result-total">
+            <div class="result-icon">🏦</div>
+            <div class="result-label">Total Payment</div>
+            <div class="result-value" id="totalPaymentResult">₹0</div>
+          </div>
+
+          <!-- Total Interest -->
+          <div class="result-card result-interest">
+            <div class="result-icon">📊</div>
+            <div class="result-label">Total Interest</div>
+            <div class="result-value" id="totalInterestResult">₹0</div>
+          </div>
+
+        </div><!-- /.results-grid -->
+
+        <!-- Breakdown Bar -->
+        <div class="breakdown-bar-wrapper" id="breakdownBarWrapper">
+          <div class="breakdown-bar">
+            <div class="bar-principal" id="barPrincipal" title="Principal"></div>
+            <div class="bar-interest" id="barInterest" title="Interest"></div>
+          </div>
+          <div class="breakdown-legend">
+            <span class="legend-item"><span class="legend-dot dot-principal"></span> Principal</span>
+            <span class="legend-item"><span class="legend-dot dot-interest"></span> Interest</span>
+          </div>
+        </div>
+
+      </section><!-- /#resultsSection -->
+
+    </div><!-- /.card -->
+
+    <!-- ===== Footer Section ===== -->
+    <footer class="footer">
+      <div class="footer-info">
+        <p>👩‍💻 <strong>Divyansha Sharma</strong></p>
+        <p>📧 <a href="mailto:sharmagun685@gmail.com">sharmagun685@gmail.com</a></p>
+      </div>
+      <a
+        href="https://digitalheroesco.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-brand"
+        id="digitalHeroesBtn"
+      >
+        🦸 Built for Digital Heroes
+      </a>
+    </footer>
+
+  </div><!-- /.wrapper -->
+
+  <script src="script.js"></script>
+</body>
+</html>
